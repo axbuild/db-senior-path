@@ -1,115 +1,39 @@
-site_name: Senior Database Developer Path
-site_url: https://axbuild.github.io/db-senior-path/
-site_description: Comprehensive guide for becoming a Senior Database Developer
-site_author: AX Build
-repo_url: https://github.com/axbuild/db-senior-path
-repo_name: axbuild/db-senior-path
+name: Deploy MkDocs
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
-theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - content.tabs.link
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-  language: ru
-  icon:
-    repo: fontawesome/brands/github
+permissions:
+  contents: write
 
-plugins:
-  - search:
-      lang: ru
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - pymdownx.tabbed:
-      alternate_style: true
-  - tables
-  - footnotes
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - def_list
-  - attr_list
-  - md_in_html
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-nav:
-  - Главная: index.md
-  - Основы:
-    - Архитектура:
-      - PostgreSQL: fundamentals/architecture/postgresql.md
-      - MySQL: fundamentals/architecture/mysql.md
-      - Сравнение: fundamentals/architecture/comparison.md
-    - Хранение данных:
-      - Обзор: fundamentals/storage/overview.md
-      - PostgreSQL: fundamentals/storage/postgresql.md
-      - MySQL: fundamentals/storage/mysql.md
-    - Транзакции:
-      - ACID: fundamentals/transactions/acid.md
-      - Уровни изоляции: fundamentals/transactions/isolation-levels.md
-      - Блокировки: fundamentals/transactions/locks.md
-  - Оптимизация:
-    - Индексы:
-      - Типы индексов: optimization/indexes/types.md
-      - Стратегии: optimization/indexes/strategies.md
-      - Лучшие практики: optimization/indexes/best-practices.md
-    - План запросов:
-      - EXPLAIN: optimization/query-planning/explain.md
-      - Оптимизация: optimization/query-planning/optimization.md
-    - Производительность:
-      - Конфигурация: optimization/performance/configuration.md
-      - Мониторинг: optimization/performance/monitoring.md
-  - Высокая доступность:
-    - Репликация:
-      - Обзор: high-availability/replication/overview.md
-      - Настройка: high-availability/replication/setup.md
-    - Бэкапы:
-      - Стратегии: high-availability/backup/strategies.md
-      - Восстановление: high-availability/backup/recovery.md
-    - Кластеризация:
-      - Решения: high-availability/clustering/solutions.md
-      - Внедрение: high-availability/clustering/implementation.md
-  - Продвинутые темы:
-    - Партиционирование: advanced/partitioning.md
-    - Шардинг: advanced/sharding.md
-    - Пользовательские типы: advanced/custom-types.md
-  - Безопасность:
-    - Аутентификация: security/authentication.md
-    - Авторизация: security/authorization.md
-    - Аудит: security/audit.md
-  - Практика:
-    - Частые проблемы: practice/common-problems.md
-    - Вопросы для собеседования: practice/interview-questions.md
-    - Примеры: practice/case-studies.md
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/axbuild/db-senior-path
-  generator: false
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-copyright: Copyright &copy; 2024 AX Build
+      - name: Build and deploy
+        run: mkdocs gh-deploy --force
