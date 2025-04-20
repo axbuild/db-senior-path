@@ -1,48 +1,47 @@
-# docs/index.md
-# Senior Database Developer Path
+# Путь к Senior Database Developer
 
-Welcome to the comprehensive guide for becoming a Senior Database Developer. This resource focuses on PostgreSQL and MySQL, covering everything from fundamental concepts to advanced techniques.
+Добро пожаловать в подробное руководство по становлению Senior Database Developer. Этот ресурс фокусируется на PostgreSQL и MySQL, охватывая все аспекты от фундаментальных концепций до продвинутых техник.
 
-## Learning Path Overview
+## Обзор учебного пути
 
-### Phase 1: Fundamentals
-- Database Architecture
-- Storage Engines
-- Transaction Management
+### Этап 1: Основы
+- Архитектура баз данных
+- Механизмы хранения
+- Управление транзакциями
 
-### Phase 2: Optimization
-- Index Management
-- Query Optimization
-- Performance Tuning
+### Этап 2: Оптимизация
+- Управление индексами
+- Оптимизация запросов
+- Настройка производительности
 
-### Phase 3: High Availability
-- Replication
-- Backup & Recovery
-- Clustering
+### Этап 3: Высокая доступность
+- Репликация
+- Резервное копирование и восстановление
+- Кластеризация
 
-### Phase 4: Advanced Topics
-- Partitioning
-- Sharding
-- Custom Development
+### Этап 4: Продвинутые темы
+- Партиционирование
+- Шардинг
+- Разработка пользовательских расширений
 
-### Phase 5: Security
-- Access Control
-- Security Best Practices
-- Audit Management
+### Этап 5: Безопасность
+- Контроль доступа
+- Лучшие практики безопасности
+- Управление аудитом
 
-### Phase 6: Real-world Practice
-- Problem Solving
-- Case Studies
-- Interview Preparation
+### Этап 6: Практика
+- Решение проблем
+- Разбор кейсов
+- Подготовка к собеседованиям
 
-## How to Use This Guide
+## Как использовать это руководство
 
-1. Start with the fundamentals section
-2. Complete all practical exercises
-3. Test your knowledge with provided questions
-4. Work through real-world scenarios
-5. Participate in discussions via GitHub issues
+1. Начните с раздела основ
+2. Выполняйте все практические упражнения
+3. Проверяйте свои знания с помощью вопросов
+4. Работайте над реальными сценариями
+5. Участвуйте в обсуждениях через GitHub issues
 
-## Getting Started
+## С чего начать
 
-Choose a section from the navigation menu to begin your learning journey.
+Выберите раздел из меню навигации, чтобы начать свой путь обучения.
