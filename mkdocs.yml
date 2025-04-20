@@ -1,0 +1,57 @@
+site_name: Senior Database Developer Path
+site_description: Comprehensive guide for becoming a Senior Database Developer
+site_author: Your Name
+repo_url: https://github.com/YOUR_USERNAME/db-senior-path
+repo_name: YOUR_USERNAME/db-senior-path
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - tables
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Fundamentals:
+    - Architecture:
+      - PostgreSQL: fundamentals/architecture/postgresql.md
+      - MySQL: fundamentals/architecture/mysql.md
+    - Storage:
+      - Overview: fundamentals/storage/overview.md
+      - PostgreSQL: fundamentals/storage/postgresql.md
+      - MySQL: fundamentals/storage/mysql.md
+    - Transactions:
+      - ACID: fundamentals/transactions/acid.md
+      - Isolation Levels: fundamentals/transactions/isolation-levels.md
+  - Optimization:
+    - Indexes: optimization/indexes.md
+    - Query Planning: optimization/query-planning.md
+    - Performance: optimization/performance.md
